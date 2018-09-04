@@ -1,7 +1,7 @@
 
 const express = require('express');
 const hbs = require('hbs');
-
+const port = process.env.POST || 3000;
 var app = express();
 /*registerPartials help in registering the reusable templates for HTML Pages*/
 hbs.registerPartials(__dirname+'/views/partials');
@@ -78,8 +78,8 @@ app.get('/about',(req,res) =>{
 
 /*This is going to bind the application to port on the machine.
 Unless this is described, the application will not the response back*/
-app.listen(8080,()=>{
-  console.log('Server is up on port 8080');
+app.listen(port,()=>{
+  console.log(`Server is up on port ${port}`);
 });
 
 /*Note : When running this app on CMD, the app.listen does not end by itself unless explictly shut down using Ctrl + C for windows*/
